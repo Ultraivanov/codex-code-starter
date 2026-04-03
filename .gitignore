@@ -1,0 +1,5 @@
+# Local framework config
+.codex/.framework-config
+
+# Build artifacts
+dist-release/
