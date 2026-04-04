@@ -17,6 +17,7 @@ Single-agent meta-framework for structured AI-assisted development with **Codex*
 - Start here: `init-project.sh`
 - Codex entry point: `AGENTS.md`
 - Changelog: `CHANGELOG.md`
+- Phase state: `.codex/PHASES.md`
 
 ## What Is New In v1.0.0
 
@@ -95,6 +96,8 @@ This framework supports phase-based delivery. Rules live in:
 - `.codex/PHASES.md` (current phase state)
 
 On every `start`, Codex should load `PHASES.md`, confirm the active block, and proceed with a single block per session.
+
+Use `init-phases` to generate a draft `PHASES.md` from current project context.
 
 ### Finish
 
