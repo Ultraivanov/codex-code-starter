@@ -87,6 +87,15 @@ Context files are resolved by profile:
 - software: `.codex/SNAPSHOT.md`, `.codex/BACKLOG.md`, `.codex/ARCHITECTURE.md`
 - content: `.codex/content/SNAPSHOT.md`, `.codex/content/BACKLOG.md`, `.codex/content/ARCHITECTURE.md`
 
+### Phase Workflow
+
+This framework supports phase-based delivery. Rules live in:
+
+- `.codex/protocols/phase-workflow.md`
+- `.codex/PHASES.md` (current phase state)
+
+On every `start`, Codex should load `PHASES.md`, confirm the active block, and proceed with a single block per session.
+
 ### Finish
 
 `/fi` runs completion protocol:
@@ -142,6 +151,10 @@ No. The framework only adds `.codex/` state and helper scripts.
 **Can I remove it later?**
 
 Yes. Remove `.codex/` and `init-project.sh` to fully uninstall.
+
+**How do phases work?**
+
+Use `init-phases` to draft `.codex/PHASES.md`. Each session should run a single block, confirmed at `start`.
 
 ## For Framework Developers
 
