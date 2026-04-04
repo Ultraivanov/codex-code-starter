@@ -12,12 +12,25 @@ Single-agent meta-framework for structured AI-assisted development with **Codex*
 
 > **RU version:** [README_RU.md](README_RU.md)
 
+## Quick Links
+
+- Start here: `init-project.sh`
+- Codex entry point: `AGENTS.md`
+- Changelog: `CHANGELOG.md`
+
 ## What Is New In v1.0.0
 
 - Codex-first workflow contract with shared state files.
 - Minimal, additive installation that never touches business code.
 - Start/finish protocols aligned with Codex session boundaries.
 - Simple project profiling for software vs content workstreams.
+
+## Core Principles
+
+- One shared project state for every Codex session.
+- Deterministic start and finish routines.
+- Zero impact on host business code.
+- Clear separation between software and content projects.
 
 ## For Users
 
@@ -119,6 +132,16 @@ All modes are designed to be non-destructive to host business code.
 - `start` includes version check.
 - If newer framework version is found and updater exists, update is applied automatically.
 - Update payload is Codex-only to keep the runtime lean.
+
+## FAQ
+
+**Does it modify my code?**
+
+No. The framework only adds `.codex/` state and helper scripts.
+
+**Can I remove it later?**
+
+Yes. Remove `.codex/` and `init-project.sh` to fully uninstall.
 
 ## For Framework Developers
 
