@@ -1,11 +1,11 @@
 # Codex Code Starter
 
-Single-agent meta-framework for structured AI-assisted development with **Codex**.
+Single-agent meta-framework for structured AI-assisted development with **Codex**, built on a 4-level workflow: Phase → Block → Task → Session.
 
 > Repository name remains `codex-code-starter` for long-term compatibility.
 
 [![GitHub](https://img.shields.io/badge/GitHub-codex--code--starter-blue)](https://github.com/Ultraivanov/codex-code-starter)
-[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](https://github.com/Ultraivanov/codex-code-starter)
+[![Version](https://img.shields.io/badge/version-2.0.0-orange.svg)](https://github.com/Ultraivanov/codex-code-starter)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -18,18 +18,20 @@ Single-agent meta-framework for structured AI-assisted development with **Codex*
 - Codex entry point: `AGENTS.md`
 - Changelog: `CHANGELOG.md`
 - Phase state: `.codex/PHASES.md`
+- Block template: `.codex/blocks/BLOCK-TEMPLATE.md`
 
-## What Is New In v1.0.0
+## What Is New In v2.0.0
 
-- Codex-first workflow contract with shared state files.
-- Minimal, additive installation that never touches business code.
-- Start/finish protocols aligned with Codex session boundaries.
-- Simple project profiling for software vs content workstreams.
+- Four-level hierarchy: Phase → Block → Task → Session.
+- Block detail files in `.codex/blocks/<ID>.md` with tasks and change plans.
+- New protocols and commands: `init-block`, `init-task`.
+- Deterministic context loading from files only.
 
 ## Core Principles
 
 - One shared project state for every Codex session.
-- Deterministic start and finish routines.
+- Deterministic context: files are the source of truth, not memory.
+- One task per session with explicit approval gates.
 - Zero impact on host business code.
 - Clear separation between software and content projects.
 
@@ -88,16 +90,21 @@ Context files are resolved by profile:
 - software: `.codex/SNAPSHOT.md`, `.codex/BACKLOG.md`, `.codex/ARCHITECTURE.md`
 - content: `.codex/content/SNAPSHOT.md`, `.codex/content/BACKLOG.md`, `.codex/content/ARCHITECTURE.md`
 
-### Phase Workflow
+### Phase / Block / Task Workflow
 
-This framework supports phase-based delivery. Rules live in:
+This framework supports phase-based delivery with blocks and tasks. Rules live in:
 
 - `.codex/protocols/phase-workflow.md`
 - `.codex/PHASES.md` (current phase state)
+- `.codex/blocks/<ID>.md` (block detail + tasks)
 
-On every `start`, Codex should load `PHASES.md`, confirm the active block, and proceed with a single block per session.
+On every `start`, Codex loads `PHASES.md` → active block file → active task → Done When.
 
-Use `init-phases` to generate a draft `PHASES.md` from current project context.
+Core commands:
+
+- `init-phases` — generate `PHASES.md` draft from context
+- `init-block <ID>` — create block file with first tasks
+- `init-task` — write Change Plan for the next task
 
 ### Finish
 
@@ -118,9 +125,19 @@ codex-code-starter/
 ├── README_RU.md
 ├── LICENSE
 ├── .codex/
+│   ├── PHASES.md                  # Phase and block status
+│   ├── blocks/                    # Block detail files and template
+│   │   └── BLOCK-TEMPLATE.md
 │   ├── commands/                 # Executable Codex workflows
+│   │   ├── init-phases.md
+│   │   ├── init-block.md
+│   │   ├── init-task.md
 │   │   └── quick-update.sh        # Codex updater entry
-│   ├── protocols/                # Silent protocol specs
+│   ├── protocols/                # Protocol specs
+│   │   ├── phase-workflow.md
+│   │   ├── init-phases-protocol.md
+│   │   ├── init-block-protocol.md
+│   │   └── init-task-protocol.md
 │   ├── templates/                # State/config templates
 │   └── contracts/
 ├── security/                     # Security scan and cleanup scripts
@@ -157,7 +174,7 @@ Yes. Remove `.codex/` and `init-project.sh` to fully uninstall.
 
 **How do phases work?**
 
-Use `init-phases` to draft `.codex/PHASES.md`. Each session should run a single block, confirmed at `start`.
+Use `init-phases` to draft `.codex/PHASES.md`, then `init-block <ID>` to open a block and `init-task` to start a task. Each session runs one task.
 
 ## For Framework Developers
 
@@ -183,7 +200,7 @@ Artifacts are created in `dist-release/`:
 ## Versioning
 
 - Semantic Versioning is used.
-- `1.0.0` is the first stable release of the Codex-first contract.
+- `2.0.0` introduces the 4-level Phase → Block → Task → Session workflow.
 
 See full details in [CHANGELOG.md](CHANGELOG.md).
 
