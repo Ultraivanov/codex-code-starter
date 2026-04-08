@@ -10,19 +10,19 @@
 
 | Field      | Value                      |
 |------------|----------------------------|
-| Phase      | <!-- e.g. MVP -->          |
-| Goal       | <!-- one sentence -->      |
-| Started    | <!-- YYYY-MM-DD -->        |
-| Target     | <!-- YYYY-MM-DD or TBD --> |
+| Phase      | Release                    |
+| Goal       | Production launch          |
+| Started    | 2026-04-08                 |
+| Target     | TBD                        |
 
 ## Active Block
 
 | Field      | Value                      |
 |------------|----------------------------|
-| Block ID   | <!-- e.g. MVP-01 -->       |
-| Title      | <!-- e.g. Auth flow -->    |
-| Status     | <!-- pending / in-progress / done / blocked --> |
-| File       | `.codex/blocks/MVP-01.md` |
+| Block ID   |                            |
+| Title      |                            |
+| Status     |                            |
+| File       |                            |
 
 ---
 
@@ -31,39 +31,43 @@
 ### Phase 1 — MVP
 > Goal: working core loop, no polish
 
-| ID     | Block             | Status  |
-|--------|-------------------|---------|
-| MVP-01 | Project scaffold  | pending |
-| MVP-02 | Data model        | pending |
-| MVP-03 | Core API          | pending |
-| MVP-04 | Minimal UI        | pending |
+| ID     | Block                  | Status  |
+|--------|------------------------|---------|
+| MVP-01 | Core MCP loop          | done    |
+| MVP-02 | State + storage        | done    |
+| MVP-03 | Monetization + risk    | done    |
+| MVP-04 | Docs + demos           | done    |
 
 ### Phase 2 — Alpha
 > Goal: internal testing, real users
 
-| ID   | Block            | Status  |
-|------|------------------|---------|
-| A-01 | Auth             | pending |
-| A-02 | Error handling   | pending |
-| A-03 | Basic analytics  | pending |
+| ID   | Block                  | Status  |
+|------|------------------------|---------|
+| A-01 | Auth + identity mapping| done    |
+| A-02 | Error handling + telemetry | done |
+| A-03 | Client integrations    | done    |
+| A-04 | Security + privacy     | done    |
 
 ### Phase 3 — Beta
 > Goal: external testing, stability
 
-| ID   | Block            | Status  |
-|------|------------------|---------|
-| B-01 | Performance pass | pending |
-| B-02 | Security review  | pending |
-| B-03 | Onboarding flow  | pending |
+| ID   | Block                  | Status      |
+|------|------------------------|-------------|
+| B-01 | Performance pass       | done        |
+| B-02 | Hosted deployment      | done        |
+| B-03 | Billing hardening      | done        |
+| B-04 | QA + regression tests  | done        |
 
 ### Phase 4 — Release
 > Goal: production launch
 
 | ID   | Block               | Status  |
 |------|---------------------|---------|
-| R-01 | Prod infrastructure | pending |
-| R-02 | Docs                | pending |
-| R-03 | Launch checklist    | pending |
+| R-01 | Release packaging   | done    |
+| R-02 | Launch docs         | done    |
+| R-03 | Monitoring + ops    | done    |
+| R-04 | Launch checklist    | done    |
+| R-05 | Polar integration   | done    |
 
 ---
 
@@ -75,4 +79,4 @@
 
 ---
 
-_Last updated: <!-- YYYY-MM-DD -->_
+_Last updated: 2026-04-08_
