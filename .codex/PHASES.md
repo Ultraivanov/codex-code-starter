@@ -68,6 +68,7 @@
 | R-03 | Monitoring + ops    | done    |
 | R-04 | Launch checklist    | done    |
 | R-05 | Polar integration   | done    |
+| R-06 | Turso persistence   | done    |
 
 ---
 
